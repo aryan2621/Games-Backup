@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: -webkit-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Montserrat";
+            font-weight: 700;
+            padding-top: 50vh;
+        }
+
+        button {
+            outline: 0;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        button.active {
+            outline: 0;
+        }
+
+        button.send {
+            border: 2px solid red;
+            color: white;
+            border-radius: 50px;
+            padding: 15px 80px;
+            background: #12e2a3;
+            position: relative;
+            overflow: hidden;
+            transform: translateX(-50%);
+            font-weight: bold;
+
+        }
+
+        button.sent.text {
+            font-size: 16px;
+
+        }
+
+        button.send.text.active {
+            transform: translateY(-350%) scale(0);
+            transition: 0.35s cubic-bezier(0.34, -0.61, 1, 0.64);
+
+        }
+
+        button.send.active {
+            padding: 0px 80px;
+            transition: 0.4s cubic-bezier(0.35, -0.77, 0.67, 1.88);
+        }
+
+        button.send.loader {
+            position: absolute;
+            width: calc(0% -4px);
+            height: calc(100% -4px);
+            background-color: #fff;
+            left: 2px;
+            top: 2px;
+            border-radius: 50px;
+        }
+
+        button.send.loader.active {
+            width: calc(100% -4px);
+            transition: 1.3s ease-in-out;
+            transition-delay: 0.5;
+        }
+
+        button.send.done {
+            color: #389168;
+            margin-top: -15px;
+            transform: translateX(300%) scale(0);
+        }
+
+        button.send.active.done {
+            transform: translateY(0%) scale(1);
+            transition: 0.4s cubic-bezier(0.34, -0.61, 1, 0.64);
+            font-weight: bold;
+            color: #12e2ae;
+        }
+
+        button.send.finished {
+            padding: 15px 80px;
+            transition: 0.4s cubic-bezier(0.35, -0.77, 0.67, 1.88);
+        }
+    </style>
+</head>
+
+<body>
+    <button class="send">
+        <div class="text">SEND </div>
+        <div class="loader"></div>
+        <div class="done"></div>
+
+
+    </button>
+    <script>
+        $(".send").on('click', function () {
+            $(".text").addClass("active");
+            $(".send").addClass("active");
+            $(".loader").addClass("active");
+            $(".send").delay(1700).queue(function () {
+                $(this).addClass("finished").clearQueue();
+            });
+            $(".done").delay(1600).queue(function () {
+                $(this).addClass("active").clearQueue();
+            });
+        });
+    </script>
+</body>
+
+</html>

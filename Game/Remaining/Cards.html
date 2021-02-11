@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<style>
+    .product-card {
+        max-width: 45rem;
+        background: linear-gradient(to right,black,white);
+        display: flex;
+        margin: 1rem;
+        position: relative;
+        overflow: hidden;
+        border: 0.5 solid black;
+        box-shadow: 0 0.8rem 2.4rem -1.4rem rgba(245, 244, 244, 0.3);
+       
+    }
+
+    .product-card::before {
+        position: absolute;
+        content: '';
+        width: 50%;
+        height: 140%;
+        background: #b9adda;
+        transform: rotate(-38deg);
+        left: -18%;
+        top: 8%;
+    }
+
+    .product-card_image {
+        vertical-align: top;
+        width: 40%;
+        height: auto;
+        margin: 5% 5% 0;
+        position: relative;
+        z-index: 2;
+        align-items: center;
+        transform: rotate(-45deg);
+    }
+
+    .product-card_content {
+        width: 50%;
+        padding: 1rem 2rem 1rem 1rem;
+    }
+
+    .product-card_title {
+        font-weight: 300;
+        font-size: 2rem;
+        color: #1f1f1f;
+        margin: 1.5rem 0;
+    }
+
+    .product-card_text {
+        color: #444444;
+        line-height: 1.4;
+    }
+
+    .product-form {
+        margin: 2.5rem 0 1rem;
+    }
+
+    .product-form_label {
+        font-size: 1rem;
+        color: #444444;
+    }
+
+    .product-form_dropdown {
+        border: none;
+        font-size: 0.95rem;
+        background-color: #ededed;
+        padding: 0.4rem 0.6rem;
+        border-radius: 0.4rem;
+        margin-left: 0.5rem;
+        width: 50%;
+    }
+
+    .product-form_dropdown:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #ff619b;
+    }
+
+    .product-card_button {
+        margin: 1.5rem 0 0;
+        border: none;
+        padding: 1rem 2rem;
+        width: 100%;
+        border-radius: 0.4rem;
+        background-color: #ff619b;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1;
+    }
+</style>
+
+<body>
+    <article class="product-card">
+        <img src='./jeremy-alford-EfLwt5Xz5Ek-unsplash.jpg' alt="" class="product-card_image" />
+        <div class="product-card_content">
+            <h1 class="product-card_title">Purple Crad</h1>
+            <p class="product-card_text">Lorem ipsum dolor sit.</p>
+            <form class="product-form">
+                <label class="product-card_label">Size:</label>
+                <select class="product-form_dropdown">
+                    <option value="">Size 4</option>
+                    <option value="">Size 4</option>
+                    <option value="">Size 4</option>
+                    <option value="">Size 4</option>
+                    <option value="">Size 4</option>
+                </select>
+                <br>
+                <button class="product-card_button">Add to cart</button>
+            </form>
+        </div>
+    </article>
+</body>
+
+</html>

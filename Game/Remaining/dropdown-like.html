@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .main{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: black;
+        color: white;
+    }
+    .menu{
+        width: 650px;
+        background: rgb(87,87,87);
+    }
+    .heading{
+        background: #f05454;
+        padding: 15px 0 15px 25px;
+        cursor: pointer;
+    }
+    .content{
+        padding: 20px;
+    }
+    .tabs{
+        width: 100%;
+        height: 70px;
+        overflow: hidden;
+    }
+    .tabs.active{
+        height: 100%;
+    }
+</style>
+<body>
+    <div class="main">
+        <div class="menu">
+            <div class="tabs">
+                <h1 class="heading fir">First</h1>
+                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, vitae!</p>
+            </div>
+            <div class="tabs">
+                <h1 class="heading sec">Second</h1>
+                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, vitae!</p>
+            </div>
+            <div class="tabs">
+                <h1 class="heading thi">Third</h1>
+                <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, vitae!</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const tab =document.querySelectorAll('.tabs')
+        for(i=0;i<tab.length;i++){
+            tab[i].addEventListener('click',function(){
+                this.classList.toggle('active')
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: cursive;
+        }
+        body{
+            background-color: #97aabd;
+        }
+        table{
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: 10px auto;
+            background-color: #272727;
+        }
+        table tr td{
+            width: 90px;
+            height: 90px;
+            border: 1px solid white;
+            font-size: 35px;
+            text-align: center;
+        }
+        table tr td:hover{
+            background-color: #2c3531;
+            cursor: pointer;
+        }
+        .winner{
+            border: 1px solid black;
+            height: 140px;
+            width: 240px;
+            margin: 10px auto;
+            font-size: 60px;
+            text-align: center;
+        }
+        .winner span{
+            font-size: 40px;
+            display: block;
+        }
+        button{
+            width: 240px;
+            height: 100px;
+            margin: 10px auto;
+            display: block;border: none;
+            background-color: #227722;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+var move=1;
+var play =true;
+$('table tr td').click(function(){
+    if($(this).text()=='' && play){
+        if((move%2)==1){
+            $(this).append('X')
+            $(this).css('color','#61892f')
+        }
+        else{
+            $(this).append('O')
+            $(this).css('color','#e85a4f')
+        }
+        move++;
+        if(findWinner()!=-1 && findWinner()!=""){
+            if(findWinner()=='X'){
+                $('body').append('<div class="winner"><span>Winner</span></div>')
+                $('body').append('<button onClick="location.reload()">Play Again</button>')
+                $('.winner').css('background-color','#61892f')
+                $('button').css('color','#61892f')
+
+                
+            }
+            else{
+                $('body').append('<div class="winner"><span>Winner</span></div>')
+                $('body').append('<button onClick="location.reload()">Play Again</button>')
+                $('.winner').css('background-color','#e85a4f')
+                $('button').css('color','#e85a4f')
+
+            }
+            play=false
+        }
+
+    }
+})
+function findWinner(){
+    sp1=$('table tr:nth-child(1) td:nth-child(1)').text()
+    sp2=$('table tr:nth-child(1) td:nth-child(2)').text()
+    sp3=$('table tr:nth-child(1) td:nth-child(3)').text()
+    sp4=$('table tr:nth-child(2) td:nth-child(1)').text()
+    sp5=$('table tr:nth-child(2) td:nth-child(2)').text()
+    sp6=$('table tr:nth-child(2) td:nth-child(3)').text()
+    sp7=$('table tr:nth-child(3) td:nth-child(1)').text()
+    sp8=$('table tr:nth-child(3) td:nth-child(2)').text()
+    sp9=$('table tr:nth-child(3) td:nth-child(3)').text()
+
+    if((sp1==sp2)&&(sp2==sp3)){
+        return sp3
+    }
+else if((sp4==sp5)&&(sp5==sp6)){
+    return sp6
+}
+else if((sp7==sp8)==(sp8==sp9)){
+    return sp9
+}
+else if((sp1==sp4)&&(sp4==sp7)){
+    return sp7
+}
+else if((sp2==sp5)&& (sp5==sp8)){
+    return sp8
+}
+else if((sp3==sp6)&&(sp6==sp9)){
+    return sp9
+}
+else if((sp1==sp5)&& (sp5==sp9)){
+    return sp9
+}
+else if((sp3==sp5)&&(sp5==sp7)){
+    return sp7
+
+
+}
+return -1
+
+
+
+}
+    </script>
+</body>
+</html>
